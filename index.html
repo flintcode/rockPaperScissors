@@ -1,116 +1,137 @@
 <!DOCTYPE html>
 <html>
+
+<!-- 
+Understand -
+     Create a rock paper scissors game that plays to 5 rounds and exits. It will keep score throughout and give winner at the end. where computer has random selection, and user inputs an answer.
+Plan - 
+     get prompt from user for choice, use console.log() to display results -->
+
+ 
     <script>
+
+ // Algorithim 
+
+    // name list with choices. Declare computerSelection as function computerPlay, 
+      const CHOICES = [/i"rock"/,/i"paper"/,/i"scissors"/];
+
+    // set variable for the players score = 0
+        let playerScore = 0
+
+    // set variable for the players score = 0
+        let computerScore = 0
+
+
+  // write a function taking parameters playerSelection and computerSelection then declares winner with a string
+  // write conditionals for choices of playerSelection vs computerSelection
+  // if  a player win condition, then alert a +1 increase in the playerScore and vice versa for computer
+
+    function playRound (){
+
+   
         
- // Understand -
-    // Create a rock paper scissors game that plays to 5 rounds and exits. It will keep score throughout and give winner at the end. where computer has random selection, and user inputs an answer.
-// Plan - 
-    // get prompt from user for choice, use console.log() to display results
+    // declare playerSelection equal to user choice with prompt. Must be within function so it prompts every round and not just at beginning
+
+        const playerSelection = prompt ('what will you choose?');
 
 
+    // declare randomChoice variable so we can return it in function computerPlay
+        const randomChoice = CHOICES[Math.floor(Math.random()* CHOICES.length)];
 
-    // Algo and Divide -
+    // create function called computerPlay that will return rock paper or scissors randomly
+         function computerPlay(){
+            return randomChoice;
+        }    
 
-        // name list with choices. Declare computerSelection as function computerPlay, 
+    // declare variable computerSelection equal to function computerPlay. Must be within function so that it refreshes its choice every iteration
 
-            const CHOICES = ["rock","paper","scissors"];
+        const computerSelection = computerPlay();
 
-        // declare randomChoice variable so we can return it in function computerPlay
-            const randomChoice = CHOICES[Math.floor(Math.random()* CHOICES.length)];
-    
 
-        // declare variable computerSelection equal to function computerPlay
+    // if user ties game, or if user cancels game, and if user inputs something that is not an option
 
-            const computerSelection = computerPlay();
-
-        // declare playerSelection equal to user choice with prompt
-
-            const playerSelection = prompt ('what will you choose?');
-
-      
-        // create function called computerPlay that will return rock paper or scissors randomly
-            function computerPlay(){
-              return randomChoice;
-            }
-
-        // set variable for the players score = 0
-            let playerScore = 0
-        
-
-        // write a function taking parameters playerSelection and computerSelection then declares winner with a string
-            // write conditionals for choices of playerSelection vs computerSelection
-                // if  a player win condition, then alert a +1 increase in the playerScore 
-            
-            function playRound (playerSelection,computerSelection){
+        if (playerSelection == computerSelection){
+            alert('Tie game!');
+        }
+        else if (playerSelection == null){
+            return False
+        }
+        else if (playerSelection != /i'rock'/ && playerSelection != /i'scissors'/ && playerSelection != /i'paper'/){
+            alert ('Pick rock, paper, or scissors!');
+            return False
+        }
 
             // conditionals if players selects rock
-
                 if (playerSelection == 'rock'){
                     if (computerSelection == 'scissors'){
-                        alert ("you win!")
+                        alert ("You win! Rock beats Scissors!")
                         alert ("+" + ++playerScore);
-
                     }
 
                     else if (computerSelection == "paper"){
-                        alert ("you lost!")
+                        alert ("You lost! Paper beats rock!");
+                        ++computerScore;
                     }
-                    else {
-                        alert ("tie game!")
-                    }
-
                 }
             // conditionals if players selects paper
 
                 if (playerSelection == 'paper'){
                     if (computerSelection == 'rock'){
-                        alert ("you win!")
-                        alert ("+" + ++playerScore);
+                        alert ("You win! Paper covers rock!")
+                        return ("+" + ++playerScore);
                     }
 
                     else if (computerSelection == "scissors"){
-                        alert ("you lost!")
+                        alert ("You lost! Scissors cuts paper!")
+                        ++computerScore;
                     }
-                    else {
-                        alert ("tie game!")
-                    }
-                    
                 }
             // conditionals if players selects scissors
 
                 if (playerSelection == 'scissors'){
                     if (computerSelection == 'paper'){
-                        alert ("you win!")
+                        alert ("You win! Scissors cuts paper nice!")
                         alert ("+" + ++playerScore);
                     }
 
                     else if (computerSelection == "rock"){
-                        alert ("you lost!")
-                    }
-                    else {
-                        alert ("tie game!")
+                        alert ("You lost! Rock destroys scissors!")
+                        ++computerScore;
                     }
                   } 
+
             // keeps score reporting winner at the end
 
-                  alert ("SCORE = " + playerScore);
-            }
-           
-            
+                 alert ("Player Score =  " + playerScore +   "    ||   Computer Score =  " + computerScore);
+             
+             }
 
-       
         
-         // write new function called game() that uses previous function (playRound) inside parameter and loops it for 5 rounds  
-            function game(){
-                return playRound (playerSelection,computerSelection);
-                return playRound (playerSelection,computerSelection);
-                return playRound (playerSelection,computerSelection);
-                return playRound (playerSelection,computerSelection);
-                return playRound (playerSelection,computerSelection);
-                return playerScore;
-            }
+     // write new function called game() that uses previous function (playRound) inside parameter and loops it for 5 rounds  
+               
+        function game(){ 
 
-            console.log (game(playRound))
+            alert(playRound())
+            alert(playRound())
+            alert(playRound())
+            alert(playRound())
+            alert(playRound())
+
+            alert ("Player Score =  " + playerScore +   "    ||   Computer Score =  " + computerScore);
+
+                if (playerScore > computerScore){
+                alert (' You beat the machine! Fantastic job!')
+                }
+                else if (playerScore == computerScore){
+                 alert('Stalemate!')
+                }
+                else {
+                alert ('Oh no, the machines are taking over!')
+                }
+        }
+           
+            console.log(game())
+
        
     </script>
 </html>
