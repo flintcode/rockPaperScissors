@@ -13,7 +13,7 @@ Plan -
  // Algorithim 
 
     // name list with choices. Declare computerSelection as function computerPlay, 
-      const CHOICES = [/i"rock"/,/i"paper"/,/i"scissors"/];
+      const CHOICES = ["rock","paper","scissors"];
 
     // set variable for the players score = 0
         let playerScore = 0
@@ -56,13 +56,13 @@ Plan -
         else if (playerSelection == null){
             return False
         }
-        else if (playerSelection != /i'rock'/ && playerSelection != /i'scissors'/ && playerSelection != /i'paper'/){
+        else if (playerSelection.toLowerCase() != 'rock' && playerSelection.toLowerCase() != 'scissors' && playerSelection.toLowerCase() != 'paper'){
             alert ('Pick rock, paper, or scissors!');
             return False
         }
 
             // conditionals if players selects rock
-                if (playerSelection == 'rock'){
+                if (playerSelection.toLowerCase() == 'rock'){
                     if (computerSelection == 'scissors'){
                         alert ("You win! Rock beats Scissors!")
                         alert ("+" + ++playerScore);
@@ -75,7 +75,7 @@ Plan -
                 }
             // conditionals if players selects paper
 
-                if (playerSelection == 'paper'){
+                if (playerSelection.toLowerCase() == 'paper'){
                     if (computerSelection == 'rock'){
                         alert ("You win! Paper covers rock!")
                         return ("+" + ++playerScore);
@@ -88,7 +88,7 @@ Plan -
                 }
             // conditionals if players selects scissors
 
-                if (playerSelection == 'scissors'){
+                if (playerSelection.toLowerCase() == 'scissors'){
                     if (computerSelection == 'paper'){
                         alert ("You win! Scissors cuts paper nice!")
                         alert ("+" + ++playerScore);
