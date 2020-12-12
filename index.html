@@ -7,46 +7,28 @@ Understand -
 Plan - 
      get prompt from user for choice, use console.log() to display results -->
 
- 
+     <!-- // Algorithim  
+     // write a function taking parameters playerSelection and computerSelection then declares winner with a string
+     // write conditionals for choices of playerSelection vs computerSelection
+     // if  a player win condition, then alert a +1 increase in the playerScore and vice versa for computer
+   -->
+
     <script>
 
- // Algorithim 
-
-    // name list with choices. Declare computerSelection as function computerPlay, 
-      const CHOICES = ["rock","paper","scissors"];
-
-    // set variable for the players score = 0
-        let playerScore = 0
-
-    // set variable for the players score = 0
-        let computerScore = 0
-
-
-  // write a function taking parameters playerSelection and computerSelection then declares winner with a string
-  // write conditionals for choices of playerSelection vs computerSelection
-  // if  a player win condition, then alert a +1 increase in the playerScore and vice versa for computer
+    const CHOICES = ["rock","paper","scissors"];
+    let playerScore = 0
+    let computerScore = 0
 
     function playRound (){
-
-   
-        
-    // declare playerSelection equal to user choice with prompt. Must be within function so it prompts every round and not just at beginning
-
         const playerSelection = prompt ('what will you choose?');
-
-
-    // declare randomChoice variable so we can return it in function computerPlay
         const randomChoice = CHOICES[Math.floor(Math.random()* CHOICES.length)];
 
     // create function called computerPlay that will return rock paper or scissors randomly
          function computerPlay(){
             return randomChoice;
         }    
-
-    // declare variable computerSelection equal to function computerPlay. Must be within function so that it refreshes its choice every iteration
-
+    // declare variable computerSelection equal to function computerPlay. Must be within function playRound so that it refreshes its choice every iteration
         const computerSelection = computerPlay();
-
 
     // if user ties game, or if user cancels game, and if user inputs something that is not an option
 
@@ -61,32 +43,27 @@ Plan -
             return False
         }
 
-            // conditionals if players selects rock
                 if (playerSelection.toLowerCase() == 'rock'){
                     if (computerSelection == 'scissors'){
                         alert ("You win! Rock beats Scissors!")
                         ++playerScore;
                     }
-
                     else if (computerSelection == "paper"){
                         alert ("You lost! Paper beats rock!");
                         ++computerScore;
                     }
                 }
-            // conditionals if players selects paper
 
                 if (playerSelection.toLowerCase() == 'paper'){
                     if (computerSelection == 'rock'){
                         alert ("You win! Paper covers rock!")
                         ++playerScore;
                     }
-
                     else if (computerSelection == "scissors"){
                         alert ("You lost! Scissors cuts paper!")
                         ++computerScore;
                     }
                 }
-            // conditionals if players selects scissors
 
                 if (playerSelection.toLowerCase() == 'scissors'){
                     if (computerSelection == 'paper'){
@@ -99,25 +76,17 @@ Plan -
                         ++computerScore;
                     }
                   } 
-
             // keeps score reporting winner at the end
 
                  alert ("Player Score =  " + playerScore +   "    ||   Computer Score =  " + computerScore);
              
              }
-
-        
      // write new function called game() that uses previous function (playRound) inside parameter and loops it for 5 rounds  
-               
         function game(){ 
 
-            alert(playRound())
-            alert(playRound())
-            alert(playRound())
-            alert(playRound())
-            alert(playRound())
-
-
+            for (i = 0; i <= 5; i++){
+                alert (playRound([i]));
+            }
                 if (playerScore > computerScore){
                 alert (' You beat the machine! Fantastic job!')
                 }
@@ -128,9 +97,6 @@ Plan -
                 alert ('Oh no, the machines are taking over!')
                 }
         }
-           
             console.log(game())
-
-       
     </script>
 </html>
