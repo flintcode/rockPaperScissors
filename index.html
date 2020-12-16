@@ -1,102 +1,25 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+<body>
+    <div class  = "choices">
+        <button id = "rockButton">ROCK</button>
+        <button id = "paperButton">PAPER</button>
+        <button id = "scissorsButton">SCISSORS</button>
+    </div>
 
-<!-- 
-Understand -
-     Create a rock paper scissors game that plays to 5 rounds and exits. It will keep score throughout and give winner at the end. where computer has random selection, and user inputs an answer.
-Plan - 
-     get prompt from user for choice, use console.log() to display results -->
+    <div id = "textContainer">
+    </div>
 
-     <!-- // Algorithim  
-     // write a function taking parameters playerSelection and computerSelection then declares winner with a string
-     // write conditionals for choices of playerSelection vs computerSelection
-     // if  a player win condition, then alert a +1 increase in the playerScore and vice versa for computer
-   -->
+    <div id ="scoreBoard">
+    </div>
 
-    <script>
+    <div id = "restart">
+        <button id = "restartButton"> Restart </button>
+    </div>
+</body>
 
-    const CHOICES = ["rock","paper","scissors"];
-    let playerScore = 0
-    let computerScore = 0
-
-    function playRound (){
-        const playerSelection = prompt ('what will you choose?');
-        const randomChoice = CHOICES[Math.floor(Math.random()* CHOICES.length)];
-
-    // create function called computerPlay that will return rock paper or scissors randomly
-         function computerPlay(){
-            return randomChoice;
-        }    
-    // declare variable computerSelection equal to function computerPlay. Must be within function playRound so that it refreshes its choice every iteration
-        const computerSelection = computerPlay();
-
-    // if user ties game, or if user cancels game, and if user inputs something that is not an option
-
-        if (playerSelection == computerSelection){
-            alert('Tie game!');
-        }
-        else if (playerSelection == null){
-            return False
-        }
-        else if (playerSelection.toLowerCase() != 'rock' && playerSelection.toLowerCase() != 'scissors' && playerSelection.toLowerCase() != 'paper'){
-            alert ('Oops! You have to pick rock, paper, or scissors!');
-            return False
-        }
-
-                if (playerSelection.toLowerCase() == 'rock'){
-                    if (computerSelection == 'scissors'){
-                        alert ("You win! Rock beats Scissors!")
-                        ++playerScore;
-                    }
-                    else if (computerSelection == "paper"){
-                        alert ("You lost! Paper beats rock!");
-                        ++computerScore;
-                    }
-                }
-
-                if (playerSelection.toLowerCase() == 'paper'){
-                    if (computerSelection == 'rock'){
-                        alert ("You win! Paper covers rock!")
-                        ++playerScore;
-                    }
-                    else if (computerSelection == "scissors"){
-                        alert ("You lost! Scissors cuts paper!")
-                        ++computerScore;
-                    }
-                }
-
-                if (playerSelection.toLowerCase() == 'scissors'){
-                    if (computerSelection == 'paper'){
-                        alert ("You win! Scissors cuts paper nice!")
-                        ++playerScore;
-                    }
-
-                    else if (computerSelection == "rock"){
-                        alert ("You lost! Rock destroys scissors!")
-                        ++computerScore;
-                    }
-                  } 
-            // keeps score reporting winner at the end
-
-                 alert ("Player Score =  " + playerScore +   "    ||   Computer Score =  " + computerScore);
-             
-             }
-     // write new function called game() that uses previous function (playRound) inside parameter and loops it for 5 rounds  
-        function game(){ 
-
-            for (i = 0; i <= 5; i++){
-                alert (playRound([i]));
-            }
-                if (playerScore > computerScore){
-                alert (' You beat the machine! Fantastic job!')
-                }
-                else if (playerScore == computerScore){
-                 alert('Stalemate!')
-                }
-                else {
-                alert ('Oh no, the machines are taking over!')
-                }
-        }
-            console.log(game())
-    </script>
+<script src ="RPS.js"></script>
 </html>
