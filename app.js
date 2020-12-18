@@ -37,7 +37,7 @@
             const computerSelection = computerPlay();
 
                 if (computerSelection == 'scissors'){
-                    displayText.textContent = "Fantastic! Rock destroys scissors!";
+                    displayText.textContent = "Fantastic, you're moving ahead! Rock destroys scissors!";
                     ++playerScore;
                  }
                 else if (computerSelection == "paper"){
@@ -52,7 +52,7 @@
                     displayText.textContent = "You have lost in the race against the machine! press 'Play again!' to beat it!";
                 }
                 if (playerScore == 5){
-                    displayText.textContent = "Amazing! You have won the race against the machine!";
+                    displayText.textContent = "Amazing! You have won the race against the machine! Press 'Play again!' to restart!";
                 }
                 document.getElementById('scoreBoard').innerHTML = "Player Score =  " + playerScore +   "    ||   Computer Score =  " + computerScore;
                 disable()
@@ -68,7 +68,7 @@
 
             const computerSelection = computerPlay();
                     if (computerSelection == 'rock'){
-                        displayText.textContent = "Good job! Paper beats rock! ";
+                        displayText.textContent = "Good job, you've taken the round! Paper beats rock! ";
                         ++playerScore;
                     }
                     else if (computerSelection == "scissors"){
@@ -82,7 +82,7 @@
                         displayText.textContent = "You have lost in the race against the machine! press 'Play again!' to beat it!";
                     }
                     if (playerScore == 5){
-                        displayText.textContent = "Amazing! You have won the race against the machine! "
+                        displayText.textContent = "Amazing! You have won the race against the machine! Press 'Play again!' to restart! "
                     }
                     document.getElementById('scoreBoard').innerHTML = "Player Score =  " + playerScore +   "    ||   Computer Score =  " + computerScore;
                     disable()
@@ -98,7 +98,7 @@
             }    
         const computerSelection = computerPlay();  
                     if (computerSelection == 'paper'){
-                        displayText.textContent = "You won! Scissors cuts paper!";
+                        displayText.textContent = "You won the round! Scissors cuts paper!";
                         ++playerScore;
                     }
                     else if (computerSelection == "rock"){
@@ -112,7 +112,7 @@
                         displayText.textContent = "You have lost in the race against the machine! press 'Play again!' to beat it!";
                     }
                     if (playerScore == 5){
-                        displayText.textContent = "Amazing! You have won the race against the machine! "
+                        displayText.textContent = "Amazing! You have won the race against the machine! Press 'Play again!' to restart! "
                     }
                     document.getElementById('scoreBoard').innerHTML = "Player Score =  " + playerScore +   "    ||   Computer Score =  " + computerScore;
                     disable()
